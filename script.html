@@ -1,92 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>RPS Game</title>
 </head>
 <body>
-    
-<script>
 
-    console.log("The Battle Starts Here")
-    let humanScore = 0;
-    let computerScore = 0;
+  <h1>Rock Paper Scissors</h1>
 
+  <!-- Buttons for player choices -->
+  <button id="rock">Rock</button>
+  <button id="paper">Paper</button>
+  <button id="scissors">Scissors</button>
 
-    function getHumanChoice() { // ni input user
+  <!-- Div to display round result -->
+  <div id="result"></div>
 
-        return prompt("Enter rocks, papers, or scissors");
+  <!-- Div to display running score -->
+  <div id="score">Player: 0 | Computer: 0</div>
 
-    }
-
-    function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-    }
-
-
-    function getComputerChoice() { //ni list variables computer bole pilih
-        let randomNumber = getRandomInt (3);
-    
-
-    if (randomNumber === 0) {
-    return "rocks";
-    } 
-    else if (randomNumber === 1) {
-    return "papers";
-    } 
-    else {
-    return "scissors";
-    }
-
-    }
-    
-
-    function playRound(humanChoice, computerChoice) {
-        
-        humanChoice = humanChoice.toLowerCase();   //nak bagi sama maksud words with diff huruf
-        computerChoice = computerChoice.toLowerCase();
-
-
-
-    if (humanChoice === computerChoice) { //if tie
-        console.log("It's a tie!");
-    return;
-  }
-
-  if ( //if win and lose
-    (humanChoice === "rocks" && computerChoice === "scissors") ||
-    (humanChoice === "papers" && computerChoice === "rocks") ||
-    (humanChoice === "scissors" && computerChoice === "papers")
-  ) {
-    console.log(`You win! ${humanChoice} beats ${computerChoice}`);
-    humanScore++;
-  } else {
-    console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
-    computerScore++;
-  }
-    }
-
-
-// main loop: play 5 rounds
-  for (let i = 0; i < 5; i++) {
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
-
-    playRound(humanSelection, computerSelection);
-
-    console.log(`Round ${i + 1} Score: Player ${humanScore} - Computer ${computerScore}`);
-}
-
-// Declare final winner
-if (humanScore > computerScore) {
-    console.log("You win the game!");
-} else if (computerScore > humanScore) {
-    console.log("Computer wins the game!");
-} else {
-    console.log("The game is a draw!");
-}
-</script>
-
+  <script src="test.js"></script>
 </body>
 </html>
