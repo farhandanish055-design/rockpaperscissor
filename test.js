@@ -6,6 +6,18 @@ let computerScore = 0;
 const resultDiv = document.getElementById("result");
 const scoreDiv = document.getElementById("score");
 
+const input = document.querySelector("#author");
+const btn = document.querySelector("#check-btn");
+
+btn.addEventListener("click", () => {
+  input.setCustomValidity("");
+
+  if (input.value === "") {
+    input.setCustomValidity("The author name must be filled!");
+    input.reportValidity();
+  }
+});
+
 // Get computer choice
 function getComputerChoice() {
   const choices = ["rock", "paper", "scissors"];
